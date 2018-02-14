@@ -49,7 +49,7 @@ function postComments(){
 function afterMessages(){
   db.date = today;
   db.end = begin;
-  fs.writeFile("database.json", db, function(err){
+  fs.writeFile(appDir+"/database.json", db, function(err){
     if(err){
       console.log(err);
     }
