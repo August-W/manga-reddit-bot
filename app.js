@@ -40,7 +40,6 @@ function postComments(){
           }
         }
       }
-      afterMessages();
     })
   })
 }
@@ -61,12 +60,15 @@ function afterMessages(){
 var today = date.create().now();
 if(db.date === 0){
   db.date = today - (1000*60*60*24);
+  timeout = 10000;
 }
 var days = today - db.date;
 days = days/(1000*60*60*24);
+var timeout = 600000;
 postComments();
 
 //THE TIMEOUT
 setTimeout(function() {
+  console.log("timeout");
   afterMessages();
-}, 600000);
+}, timeout);
