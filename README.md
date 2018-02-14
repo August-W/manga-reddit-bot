@@ -50,3 +50,4 @@ ________________________________________________________________________________
 
 # ENJOY!
 I hope the setup process isn't too complicated. Maybe one day I'll make a gui and make this more user-friendly but ehhh...
+I didn't do much error handling here. You may want to keep a spare copy of your database.json in case the bot runs into an error and leaves a null object there. Also, if you ever want to "unsubscribe" from a manga, just delete it's title from that file.
