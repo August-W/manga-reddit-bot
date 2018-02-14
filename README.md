@@ -25,12 +25,14 @@ ________________________________________________________________________________
 Using the command prompt / terminal, navigate to this project's folder and run:
  
 node app.js
+
 The first time you run this bot, it will only check for new posts from that day. You will not get messaged for every single chapter of a manga from before you started using the bot.
 _____________________________________________________________________________________
 
 
 # I SUGGEST SETTING THIS BOT TO RUN ON BOOT
 This way, the bot will visit reddit daily and notify you on new manga, and you don't have to manually run it each time. The bot tries to read every post that has been uploaded since the last post it read. This means that, the less frequently you run the bot, the more posts it has to read. If you run the bot very infrequently (e.g. once every two months or something), it may time out before it reads every post.
+
 # TO RUN ON BOOT (WINDOWS):
 1. Using any text editor, create a .bat file (the filename doesn't matter) with the following line:
  
@@ -40,6 +42,7 @@ Replacing {PATH_TO_YOUR_DIRECTORY} with the path to this project on your compute
 2. Follow these steps to add this .bat file to your startup folder: https://www.computerhope.com/issues/ch000322.htm
         
 3. Create environment variables for the .env values (CLIENT_ID, CLIENT_SECRET, etc.): https://msdn.microsoft.com/en-us/library/windows/desktop/ms682653%28v=vs.85%29.aspx
+
 # TO RUN ON BOOT (LINUX/MAC):
  Same basic idea, but with a bash script (.sh, not .bat).
 ___________________________________________________________________________________
