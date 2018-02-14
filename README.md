@@ -5,7 +5,7 @@
 # This server-less bot allows you to "subscribe" to your favorite manga on /r/manga. You decide which manga
 # to subscribe to. Whenever a new chapter of one of your listed manga is posted on /r/manga, the
 # bot will comment on the post with your username, so that you receive a notification.
-################################################################################################
+##############################################################################################
 
 
 # SETUP
@@ -13,8 +13,8 @@
 # 2. Download this project
 # 3. Create a new Reddit account for this bot. Go to https://www.reddit.com/prefs/apps/
 #          to create the bot.
-# 4. Take note of the bot's Client ID and Client Secret. (they look like this:
-           https://i1.wp.com/pythonforengineers.com/wp-content/uploads/2014/11/redditbot2.jpg)
+# 4. Take note of the bot's Client ID and Client Secret. They look like this:
+           https://i1.wp.com/pythonforengineers.com/wp-content/uploads/2014/11/redditbot2.jpg
 # 5. Edit the values in .sample-env in this project with the Client ID, Client Secret,
 #          and the username and password for your bot's account.
 # 6. Using the command prompt / terminal, navigate to this project's folder and run:
@@ -28,7 +28,7 @@
 #        use the English title here... not the Japanese title). You do not need to include
 #        things like "[DISC]" or "Ch12" to copy the entire reddit post format, just the title
 #        of the manga.
-############################################################################################
+##########################################################################################
 
 
 # RUN THE BOT  
@@ -37,7 +37,7 @@
 # The first time you run this bot, it will only check for new posts from that day. You will not
 #         get messaged for every single chapter of a manga from before you started using the
 #         bot.
-###############################################################################################
+#############################################################################################
 
 
 # I SUGGEST SETTING THIS BOT TO RUN ON BOOT
@@ -56,7 +56,7 @@
 #        https://msdn.microsoft.com/en-us/library/windows/desktop/ms682653%28v=vs.85%29.aspx
 # TO RUN ON BOOT (LINUX/MAC):
 # Same basic idea, but with a bash script (.sh, not .bat).
-##################################################################################################
+################################################################################################
 
 
 #ENJOY!
