@@ -12,19 +12,15 @@ ________________________________________________________________________________
  1. Install Node.js
  2. Download this project
  3. Create a new Reddit account for this bot. Go to https://www.reddit.com/prefs/apps/
- 
           to create the bot.
  4. Take note of the bot's Client ID and Client Secret. They look like this:
- 
           https://i1.wp.com/pythonforengineers.com/wp-content/uploads/2014/11/redditbot2.jpg
- 5. Edit the values in .sample-env in this project with the Client ID, Client Secret,
+ 5. Edit the values in .sample-env in this project with the Client ID, Client Secret, and the username and password for your bot's account.
+ 6. Using the command prompt / terminal, navigate to this project's folder and run: 
  
-          and the username and password for your bot's account.
- 6. Using the command prompt / terminal, navigate to this project's folder and run:
+ node setup.js        
  
-          node setup.js
-          
-    This should create the .env file you need to run this bot, based on .sample-env.
+ This should create the .env file you need to run this bot, based on .sample-env.
  7. Edit database.json with any text editor. Put your personal reddit account's
         username here (not the bot's username). Add the titles of manga you want to
         subscribe to. Follow the format of the examples in the file. The titles do
@@ -40,9 +36,7 @@ ________________________________________________________________________________
  Using the command prompt / terminal, navigate to this project's folder and run:
  
          node app.js
- The first time you run this bot, it will only check for new posts from that day. You will not
-         get messaged for every single chapter of a manga from before you started using the
-         bot.
+ The first time you run this bot, it will only check for new posts from that day. You will not get messaged for every single chapter of a manga from before you started using the bot.
 _____________________________________________________________________________________
 
 
