@@ -59,6 +59,6 @@ ________________________________________________________________________________
 ___________________________________________________________________________________
 
 
-#ENJOY!
+# ENJOY!
 I hope the setup process isn't too complicated. Maybe one day I'll make a gui and make this more
         user-friendly but ehhh...
