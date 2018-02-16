@@ -30,8 +30,8 @@ function postComments(){
   r.getSubreddit('manga').getNew({limit:1}).then(firstListing => {
     begin = firstListing[0].id;
     exitTime = setTimeout(function() {
-      console.log("timeout");
-      afterMessages(begin, true);
+      kill = true;
+      pmUser();
     }, timeout);
 
     firstListing.fetchMore({amount:300*days, append:true}).then(myListing => {
@@ -40,39 +40,60 @@ function postComments(){
       for(var i = 0; i<myListing.length; i++){
         if(myListing[i].id === db.end){
           console.log("Searched all new posts");
-          clearTimeout(exitTime);
+          kill = false;
           return begin;
         }
         else{
           var title = myListing[i].title.toLowerCase();
           for(var n = 0; n<db.manga.length; n++){
             if(title.includes(db.manga[n]) && title.includes("[disc]")){
-              console.log("New chapter of '"+db.manga[n]+"' was found!");
-              myListing[i].reply(db.username);
+              console.log("New chapter of '"+db.manga[n]+"' was found! ");
+              newMangaNames.push(myListing[i].title);
+              newMangaLinks.push("https://www.reddit.com/r/manga/"+myListing[i].id);
             }
           }
         }
       }
-      clearTimeout(exitTime);
+      kill = false;
       return begin;
-    }).then(start => afterMessages(start, false));
+    }).then( b => {pmUser();});
+  });
+}
+
+//PM USER NEW MANGA CHAPTERS
+function pmUser(){
+  if(kill === false){
+    clearTimeout(exitTime);
+  }
+  return r.getUser(db.username).fetch().then(user => {
+    if(newMangaNames.length>0){
+      var pm = "";
+      for(var k = 0; k<newMangaNames.length; k++){
+        pm=pm+"["+newMangaNames[k]+"]"+"("+newMangaLinks[k]+")"+"\n\n";
+      }
+      r.composeMessage({to: user, subject: newMangaNames.length+" new manga chapter(s) were uploaded!", text: pm}).then( u => {afterMessages();});
+    }
+    else{
+      afterMessages();
+    }
   });
 }
 
 //WRITE TO THE DATABASE
-function afterMessages(start, kill){
+function afterMessages(){
   return new Promise(function(resolve, reject){
     db.date = today;
-    db.end = start;
+    db.end = begin;
     fs.writeFile(appDir+"/database.json", JSON.stringify(db, null, "\t"), 'utf-8', err => {
       if(err){
         console.log(err);
       }
-      else{
-        console.log("Finished! Headpat me, senpai!");
-      }
-      if(kill === true){
+      else if(kill === true){
+        console.log("Timeout!");
         process.exit();
+      }
+      else {
+        console.log("Finished! Headpat me, senpai!");
       }
     });
   });
@@ -83,6 +104,9 @@ function afterMessages(start, kill){
 console.log("I'm your manga-reddit-bot. Let's get started!")
 var timeout = 600000;
 var today = date.create().now();
+var kill = true;
+var newMangaLinks = [];
+var newMangaNames = [];
 
 if(db.date === 0){
   console.log("It appears that this is your first time! I'll be gentle...")
