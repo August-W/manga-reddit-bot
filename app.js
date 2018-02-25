@@ -114,7 +114,7 @@ if(db.date === 0){
   db.date = today - (1000*60*60*24);
   timeout = 10000;
 }
-else if(db.date - today < 1){
+else if(today - db.date < 0.6){
   console.log("You have already used manga-reddit-bot today! If you need to reset and try again, first change the 'date' value in database.json to 0.")
   process.exit();
 }
